@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Projects | David Cyber Studio</title>
+
+  <meta
+    name="description"
+    content="Explore Faith Verse AI, Bible Quest and ORION — the major projects of David Cyber Studio."
+  >
+
+  <style>
+
+    :root {
+      --blue: #071a38;
+      --blue2: #0b2d5c;
+      --cyan: #00c8ff;
+      --gold: #ffd700;
+      --white: #ffffff;
+      --muted: #aab6c8;
+      --dark: #030812;
+      --card: rgba(10, 27, 55, 0.82);
+      --border: rgba(0, 200, 255, 0.25);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(
+          circle at 20% 10%,
+          rgba(0, 200, 255, 0.08),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 80% 30%,
+          rgba(255, 215, 0, 0.05),
+          transparent 30%
+        ),
+        var(--dark);
+
+      color: var(--white);
+      line-height: 1.7;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(3, 8, 18, 0.94);
+      backdrop-filter: blur(15px);
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      max-width: 1250px;
+      min-height: 75px;
+
+      margin: auto;
+      padding: 0 25px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 30px;
+    }
+
+    .logo {
+      color: var(--gold);
+      text-decoration: none;
+
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 1px;
+
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      transition: 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--cyan);
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 560px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 100px 25px;
+
+      position: relative;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          rgba(3, 8, 18, 0.45),
+          rgba(3, 8, 18, 0.95)
+        ),
+        radial-gradient(
+          circle at center,
+          #0b2d5c,
+          #030812 70%
+        );
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 420px;
+      height: 420px;
+
+      border: 1px solid rgba(0, 200, 255, 0.15);
+
+      border-radius: 50%;
+
+      animation: rotate 20s linear infinite;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+
+      max-width: 900px;
+    }
+
+    .badge {
+      display: inline-block;
+
+      padding: 8px 18px;
+      margin-bottom: 20px;
+
+      border: 1px solid rgba(0, 200, 255, 0.4);
+
+      border-radius: 50px;
+
+      background: rgba(0, 200, 255, 0.08);
+
+      color: var(--cyan);
+
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 8vw, 85px);
+
+      line-height: 1;
+
+      color: var(--gold);
+
+      margin-bottom: 25px;
+
+      text-shadow:
+        0 0 25px rgba(255, 215, 0, 0.2);
+    }
+
+    .hero h1 span {
+      color: var(--cyan);
+    }
+
+    .hero p {
+      max-width: 750px;
+
+      margin: auto;
+
+      color: var(--muted);
+
+      font-size: 19px;
+    }
+
+    /* ================= SECTION ================= */
+
+    .section {
+      max-width: 1200px;
+
+      margin: auto;
+
+      padding: 90px 25px;
+    }
+
+    .section-title {
+      text-align: center;
+
+      margin-bottom: 55px;
+    }
+
+    .section-title h2 {
+      color: var(--cyan);
+
+      font-size: 40px;
+
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+
+      font-size: 17px;
+    }
+
+    /* ================= PROJECT GRID ================= */
+
+    .projects {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 30px;
+    }
+
+    .project {
+      position: relative;
+
+      min-height: 520px;
+
+      padding: 35px;
+
+      display: flex;
+      flex-direction: column;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(11,45,92,0.9),
+          rgba(3,8,18,0.98)
+        );
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 28px;
+
+      transition: 0.35s;
+    }
+
+    .project:hover {
+      transform: translateY(-12px);
+
+      border-color: var(--cyan);
+
+      box-shadow:
+        0 25px 60px rgba(0, 200, 255, 0.12);
+    }
+
+    .project-number {
+      color: var(--cyan);
+
+      font-size: 12px;
+
+      font-weight: bold;
+
+      letter-spacing: 3px;
+
+      margin-bottom: 25px;
+    }
+
+    .project-icon {
+      width: 90px;
+      height: 90px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 22px;
+
+      background:
+        rgba(0, 200, 255, 0.08);
+
+      border:
+        1px solid
+        rgba(0, 200, 255, 0.2);
+
+      font-size: 45px;
+
+      margin-bottom: 25px;
+    }
+
+    .project h3 {
+      color: var(--gold);
+
+      font-size: 30px;
+
+      margin-bottom: 15px;
+    }
+
+    .project p {
+      color: var(--muted);
+
+      font-size: 15px;
+
+      flex: 1;
+    }
+
+    .tags {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      margin: 25px 0;
+    }
+
+    .tag {
+      padding: 6px 11px;
+
+      border:
+        1px solid
+        rgba(0, 200, 255, 0.25);
+
+      border-radius: 50px;
+
+      color: var(--cyan);
+
+      font-size: 11px;
+
+      background:
+        rgba(0, 200, 255, 0.05);
+    }
+
+    .project-button {
+      display: inline-block;
+
+      text-align: center;
+
+      padding: 12px 20px;
+
+      border-radius: 50px;
+
+      background: var(--cyan);
+
+      color: #00101c;
+
+      text-decoration: none;
+
+      font-weight: bold;
+
+      transition: 0.3s;
+    }
+
+    .project-button:hover {
+      background: var(--gold);
+
+      transform: translateY(-3px);
+    }
+
+    /* ================= PROJECT DETAILS ================= */
+
+    .details {
+      margin-top: 100px;
+    }
+
+    .detail {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 50px;
+
+      align-items: center;
+
+      margin-bottom: 80px;
+
+      padding: 45px;
+
+      background: var(--card);
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 28px;
+    }
+
+    .detail:nth-child(even) {
+      direction: rtl;
+    }
+
+    .detail:nth-child(even) > * {
+      direction: ltr;
+    }
+
+    .detail-icon {
+      min-height: 300px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 25px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(0,200,255,0.15),
+          transparent 65%
+        );
+
+      border:
+        1px solid
+        rgba(0,200,255,0.15);
+
+      font-size: 100px;
+    }
+
+    .detail h3 {
+      color: var(--gold);
+
+      font-size: 35px;
+
+      margin-bottom: 18px;
+    }
+
+    .detail h4 {
+      color: var(--cyan);
+
+      margin:
+        20px 0 8px;
+    }
+
+    .detail p {
+      color: var(--muted);
+    }
+
+    /* ================= FUTURE ================= */
+
+    .future {
+      max-width: 1050px;
+
+      margin:
+        30px auto 100px;
+
+      padding: 75px 30px;
+
+      text-align: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(0,200,255,0.12),
+          rgba(255,215,0,0.06)
+        );
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 30px;
+    }
+
+    .future h2 {
+      color: var(--gold);
+
+      font-size: 42px;
+
+      margin-bottom: 18px;
+    }
+
+    .future p {
+      max-width: 750px;
+
+      margin:
+        0 auto 30px;
+
+      color: var(--muted);
+
+      font-size: 17px;
+    }
+
+    .button {
+      display: inline-block;
+
+      padding: 14px 30px;
+
+      background: var(--cyan);
+
+      color: #00101c;
+
+      text-decoration: none;
+
+      border-radius: 50px;
+
+      font-weight: bold;
+
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: var(--gold);
+
+      transform: translateY(-3px);
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #02050b;
+
+      border-top:
+        1px solid
+        rgba(0,200,255,0.15);
+
+      padding: 50px 25px;
+
+      text-align: center;
+    }
+
+    .footer-logo {
+      color: var(--gold);
+
+      font-size: 24px;
+
+      font-weight: bold;
+
+      margin-bottom: 10px;
+    }
+
+    .footer-logo span {
+      color: var(--cyan);
+    }
+
+    footer p {
+      color: var(--muted);
+
+      margin: 8px 0;
+    }
+
+    .footer-links {
+      margin: 20px 0;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+
+      text-decoration: none;
+
+      margin: 0 10px;
+
+      transition: 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--cyan);
+    }
+
+    /* ================= ANIMATION ================= */
+
+    @keyframes rotate {
+
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 950px) {
+
+      .navbar {
+        flex-direction: column;
+
+        padding: 20px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+
+        justify-content: center;
+      }
+
+      .projects {
+        grid-template-columns:
+          1fr;
+      }
+
+      .detail {
+        grid-template-columns:
+          1fr;
+      }
+
+      .detail:nth-child(even) {
+        direction: ltr;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .hero {
+        min-height: 450px;
+
+        padding:
+          70px 20px;
+      }
+
+      .hero h1 {
+        font-size: 45px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .section {
+        padding:
+          65px 18px;
+      }
+
+      .project {
+        min-height: 450px;
+
+        padding: 28px;
+      }
+
+      .detail {
+        padding: 25px;
+      }
+
+      .detail-icon {
+        min-height: 220px;
+
+        font-size: 75px;
+      }
+
+      .detail h3 {
+        font-size: 29px;
+      }
+
+      .future {
+        margin:
+          20px 18px 65px;
+
+        padding:
+          55px 22px;
+      }
+
+      .future h2 {
+        font-size: 31px;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+
+    <div class="navbar">
+
+      <a href="index.html" class="logo">
+         DAVID <span>CYBER STUDIO</span>
+      </a>
+
+
+      <nav>
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="aboutus.html">
+          About Us
+        </a>
+
+        <a href="team.html">
+          Team
+        </a>
+
+        <a href="services.html">
+          Services
+        </a>
+
+        <a href="projects.html" class="active">
+          Projects
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="badge">
+        DAVID CYBER STUDIO
+      </div>
+
+
+      <h1>
+        OUR <span>PROJECTS</span>
+      </h1>
+
+
+      <p>
+        Explore the ideas, technology and creativity
+        behind Faith Verse AI, Bible Quest and ORION.
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= PROJECT CARDS ================= -->
+
+  <section class="section">
+
+    <div class="section-title">
+
+      <h2>
+        Featured Projects
+      </h2>
+
+      <p>
+        Three projects. Three different ideas.
+        One creative technology studio.
+      </p>
+
+    </div>
+
+
+    <div class="projects">
+
+
+      <!-- ================= FAITH VERSE ================= -->
+
+      <article class="project">
+
+        <div class="project-number">
+          PROJECT 01
+        </div>
+
+
+        <div class="project-icon">
+          📖🤖
+        </div>
+
+
+        <h3>
+          Faith Verse AI
+        </h3>
+
+
+        <p>
+          Faith Verse AI is an AI-powered Bible
+          learning project created to make exploring
+          Scripture more interactive, engaging and
+          accessible.
+        </p>
+
+
+        <div class="tags">
+
+          <span class="tag">
+            AI
+          </span>
+
+          <span class="tag">
+            Bible
+          </span>
+
+          <span class="tag">
+            Learning
+          </span>
+
+          <span class="tag">
+            Technology
+          </span>
+
+        </div>
+
+
+        <a href="#faithverse" class="project-button">
+          View Project
+        </a>
+
+      </article>
+
+
+
+      <!-- ================= BIBLE QUEST ================= -->
+
+      <article class="project">
+
+        <div class="project-number">
+          PROJECT 02
+        </div>
+
+
+        <div class="project-icon">
+          ⚔️📖
+        </div>
+
+
+        <h3>
+          Bible Quest
+        </h3>
+
+
+        <p>
+          Bible Quest is an adventure series that
+          combines Bible stories, animation,
+          storytelling and technology to create
+          exciting learning experiences.
+        </p>
+
+
+        <div class="tags">
+
+          <span class="tag">
+            Animation
+          </span>
+
+          <span class="tag">
+            Bible
+          </span>
+
+          <span class="tag">
+            Adventure
+          </span>
+
+          <span class="tag">
+            Storytelling
+          </span>
+
+        </div>
+
+
+        <a href="#biblequest" class="project-button">
+          View Project
+        </a>
+
+      </article>
+
+
+
+      <!-- ================= ORION ================= -->
+
+      <article class="project">
+
+        <div class="project-number">
+          PROJECT 03
+        </div>
+
+
+        <div class="project-icon">
+          ⌚🤖
+        </div>
+
+
+        <h3>
+          ORION
+        </h3>
+
+
+        <p>
+          ORION is a futuristic smart assistant
+          project exploring voice commands,
+          reminders, notifications, smart devices,
+          phone connectivity and AI.
+        </p>
+
+
+        <div class="tags">
+
+          <span class="tag">
+            AI
+          </span>
+
+          <span class="tag">
+            Smart Tech
+          </span>
+
+          <span class="tag">
+            Hardware
+          </span>
+
+          <span class="tag">
+            Assistant
+          </span>
+
+        </div>
+
+
+        <a href="#orion" class="project-button">
+          View Project
+        </a>
+
+      </article>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= PROJECT DETAILS ================= -->
+
+  <section class="section details">
+
+
+    <!-- FAITH VERSE -->
+
+    <div class="detail" id="faithverse">
+
+      <div class="detail-icon">
+        📖🤖
+      </div>
+
+
+      <div>
+
+        <h3>
+          Faith Verse AI
+        </h3>
+
+
+        <p>
+          Faith Verse AI brings together Bible
+          learning and artificial intelligence.
+          The goal is to create a digital experience
+          where people can explore Scripture and
+          learn about biblical topics in an engaging
+          way.
+        </p>
+
+
+        <h4>
+          What We Are Exploring
+        </h4>
+
+
+        <p>
+          Bible verse discovery, AI assistance,
+          Bible learning, children's experiences,
+          devotional content and interactive
+          Scripture exploration.
+        </p>
+
+
+        <div class="tags">
+
+          <span class="tag">Artificial Intelligence</span>
+          <span class="tag">Bible</span>
+          <span class="tag">Education</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- BIBLE QUEST -->
+
+    <div class="detail" id="biblequest">
+
+      <div class="detail-icon">
+        ⚔️📖
+      </div>
+
+
+      <div>
+
+        <h3>
+          Bible Quest
+        </h3>
+
+
+        <p>
+          Bible Quest turns Bible stories into
+          creative adventures. Through characters,
+          storytelling, animation and technology,
+          the project aims to make biblical lessons
+          exciting for young audiences.
+        </p>
+
+
+        <h4>
+          What We Are Creating
+        </h4>
+
+
+        <p>
+          Characters, episodes, animated scenes,
+          Bible adventures, visual storytelling
+          and interactive experiences inspired
+          by Scripture.
+        </p>
+
+
+        <div class="tags">
+
+          <span class="tag">Animation</span>
+          <span class="tag">Storytelling</span>
+          <span class="tag">Bible</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ORION -->
+
+    <div class="detail" id="orion">
+
+      <div class="detail-icon">
+        ⌚🤖
+      </div>
+
+
+      <div>
+
+        <h3>
+          ORION
+        </h3>
+
+
+        <p>
+          ORION is a futuristic technology project
+          exploring the idea of a personal smart
+          assistant that can connect with devices
+          and help users interact with technology
+          through voice and smart features.
+        </p>
+
+
+        <h4>
+          What We Are Exploring
+        </h4>
+
+
+        <p>
+          Voice commands, reminders, notifications,
+          music, weather, smart-device connectivity,
+          phone integration and artificial
+          intelligence.
+        </p>
+
+
+        <div class="tags">
+
+          <span class="tag">AI</span>
+          <span class="tag">Hardware</span>
+          <span class="tag">Smart Devices</span>
+          <span class="tag">Voice</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </section>
+
+
+
+  <!-- ================= FUTURE ================= -->
+
+  <section class="future">
+
+    <h2>
+      More Projects Are Coming
+    </h2>
+
+
+    <p>
+      David Cyber Studio is constantly learning,
+      experimenting and building. Faith Verse AI,
+      Bible Quest and ORION are only part of the
+      journey. New ideas and new technology
+      projects are coming.
+    </p>
+
+
+    <a href="team.html" class="button">
+      Meet The Team →
+    </a>
+
+  </section>
+
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="footer-logo">
+       DAVID <span>CYBER STUDIO</span>
+    </div>
+
+
+    <p>
+      We Learn. We Build. We Innovate.
+    </p>
+
+
+    <div class="footer-links">
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="aboutus.html">
+        About Us
+      </a>
+
+      <a href="team.html">
+        Team
+      </a>
+
+      <a href="services.html">
+        Services
+      </a>
+
+      <a href="projects.html">
+        Projects
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
+    </div>
+
+
+    <p>
+      © 2026 David Cyber Studio.
+      All rights reserved.
+    </p>
+
+  </footer>
+
+
+</body>
+</html>

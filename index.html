@@ -1,0 +1,840 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>David Cyber Studio | Young Creators</title>
+
+  <style>
+    :root {
+      --blue: #071a38;
+      --blue2: #0b2d5c;
+      --cyan: #00c8ff;
+      --gold: #ffd700;
+      --white: #ffffff;
+      --muted: #aab6c8;
+      --dark: #030812;
+      --card: rgba(10, 27, 55, 0.85);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--dark);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ================= NAVBAR ================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(3, 8, 18, 0.85);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(0, 200, 255, 0.15);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      color: var(--gold);
+      font-size: 22px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: var(--gold);
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 100vh;
+      padding: 150px 8% 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background:
+        radial-gradient(circle at top, #0d3470 0%, transparent 45%),
+        linear-gradient(135deg, #020713, #071a38);
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .crown {
+      font-size: 55px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 8vw, 85px);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--cyan);
+    }
+
+    .hero h2 {
+      color: var(--gold);
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .hero-buttons {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #000;
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 200, 255, 0.2);
+    }
+
+    /* ================= GENERAL ================= */
+
+    section {
+      padding: 100px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title span {
+      color: var(--gold);
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      margin: 10px 0;
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    /* ================= ABOUT ================= */
+
+    .about {
+      background: #050d1b;
+    }
+
+    .about-container {
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about-container p {
+      color: #c4cede;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      color: var(--cyan);
+      font-weight: bold;
+    }
+
+    /* ================= TEAM ================= */
+
+    .team {
+      background:
+        radial-gradient(circle at center, #0b2850 0%, transparent 55%),
+        #030812;
+    }
+
+    .team-grid {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 35px;
+    }
+
+    .team-card {
+      background: var(--card);
+      border: 1px solid rgba(255, 215, 0, 0.25);
+      border-radius: 25px;
+      overflow: hidden;
+      transition: 0.35s ease;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+    }
+
+    .team-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--gold);
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.5),
+        0 0 25px rgba(255,215,0,0.1);
+    }
+
+    .team-image {
+      height: 360px;
+      overflow: hidden;
+      background: #0b1830;
+    }
+
+    .team-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: 0.5s;
+    }
+
+    .team-card:hover .team-image img {
+      transform: scale(1.04);
+    }
+
+    .team-info {
+      padding: 28px;
+      text-align: center;
+    }
+
+    .team-info h3 {
+      font-size: 28px;
+      margin-bottom: 7px;
+    }
+
+    .role {
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .skills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .skills span {
+      padding: 8px 13px;
+      border-radius: 20px;
+      background: rgba(0, 200, 255, 0.08);
+      border: 1px solid rgba(0, 200, 255, 0.18);
+      color: #dcecff;
+      font-size: 13px;
+    }
+
+    /* ================= SERVICES ================= */
+
+    .services {
+      background: #050d1b;
+    }
+
+    .service-grid {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      padding: 30px 20px;
+      text-align: center;
+      background: rgba(11, 35, 70, 0.6);
+      border: 1px solid rgba(0, 200, 255, 0.15);
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--cyan);
+    }
+
+    .service-icon {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ================= PROJECTS ================= */
+
+    .projects {
+      background: #030812;
+    }
+
+    .project-grid {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      padding: 30px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, #0b2346, #061225);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--gold);
+    }
+
+    .project-card h3 {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+    }
+
+    /* ================= CONTACT ================= */
+
+    .contact {
+      text-align: center;
+      background:
+        radial-gradient(circle at center, #0c2d5d 0%, transparent 60%),
+        #030812;
+    }
+
+    .contact-box {
+      max-width: 700px;
+      margin: auto;
+      padding: 50px 30px;
+      border-radius: 25px;
+      background: rgba(8, 25, 52, 0.8);
+      border: 1px solid rgba(0, 200, 255, 0.2);
+    }
+
+    .contact-box h2 {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #02050b;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 35px 20px;
+      text-align: center;
+    }
+
+    footer .footer-logo {
+      color: var(--gold);
+      font-size: 23px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    footer p {
+      color: #77859a;
+      font-size: 14px;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 850px) {
+
+      nav ul {
+        display: none;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      section {
+        padding: 75px 6%;
+      }
+
+      .hero {
+        padding-left: 6%;
+        padding-right: 6%;
+      }
+
+      .section-title h2 {
+        font-size: 32px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .team-image {
+        height: 330px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVIGATION ================= -->
+
+  <header>
+    <nav>
+
+      <a href="#home" class="logo">
+         DAVID <span>CYBER STUDIO</span>
+      </a>
+
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+    </nav>
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <div class="crown"></div>
+
+      <h1>
+        DAVID <span>CYBER STUDIO</span>
+      </h1>
+
+      <h2>Two Young Creators • One Vision</h2>
+
+      <p>
+        Welcome to David Cyber Studio — a creative technology studio
+        focused on coding, artificial intelligence, websites,
+        digital creativity and innovative projects.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#team" class="btn btn-primary">
+          Meet Our Team
+        </a>
+
+        <a href="#projects" class="btn btn-secondary">
+          View Projects
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= ABOUT ================= -->
+
+  <section class="about" id="about">
+
+    <div class="section-title">
+      <span>ABOUT US</span>
+      <h2>Creating With Technology</h2>
+      <p>Young minds building big ideas.</p>
+    </div>
+
+    <div class="about-container">
+
+      <p>
+        <span class="highlight">David Cyber Studio</span>
+        is a young technology and creative studio where ideas become
+        real digital projects.
+      </p>
+
+      <p>
+        We explore coding, artificial intelligence, websites,
+        digital products, creative media and futuristic technology.
+      </p>
+
+      <p>
+        Our goal is simple:
+        <strong>learn, create, innovate and inspire.</strong>
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= TEAM ================= -->
+
+  <section class="team" id="team">
+
+    <div class="section-title">
+
+      <span>D OUR TEAM</span>
+
+      <h2>Two Young Creators • One Vision</h2>
+
+      <p>
+        Meet the young creators behind David Cyber Studio.
+      </p>
+
+    </div>
+
+
+    <div class="team-grid">
+
+
+      <!-- DAVE -->
+
+      <div class="team-card">
+
+        <div class="team-image">
+          <img
+            src="dave.png"
+            alt="Segun David"
+          >
+        </div>
+
+        <div class="team-info">
+
+          <h3>Segun David</h3>
+
+          <p class="role">
+            Founder & Lead Creator
+          </p>
+
+          <div class="skills">
+
+            <span>💻 Coding</span>
+            <span>🤖 AI</span>
+            <span>🌐 Websites</span>
+            <span>🚀 Innovation</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- CROWN COVENANT -->
+
+      <div class="team-card">
+
+        <div class="team-image">
+          <img
+            src="in.png"
+            alt="Crown Covenant"
+          >
+        </div>
+
+        <div class="team-info">
+
+          <h3>Crown Covenant</h3>
+
+          <p class="role">
+            Young Tech Creator & Team Partner
+          </p>
+
+          <div class="skills">
+
+            <span>💻 Technology</span>
+            <span>🎨 Creative Projects</span>
+            <span>🚀 Innovation</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= SERVICES ================= -->
+
+  <section class="services" id="services">
+
+    <div class="section-title">
+
+      <span>WHAT WE DO</span>
+
+      <h2>Our Services</h2>
+
+      <p>
+        Technology and creativity brought together.
+      </p>
+
+    </div>
+
+
+    <div class="service-grid">
+
+
+      <div class="service-card">
+
+        <div class="service-icon">💻</div>
+
+        <h3>Coding</h3>
+
+        <p>
+          Building websites, applications and interactive
+          digital experiences.
+        </p>
+
+      </div>
+
+
+      <div class="service-card">
+
+        <div class="service-icon">🤖</div>
+
+        <h3>Artificial Intelligence</h3>
+
+        <p>
+          Exploring AI tools, assistants and intelligent
+          digital projects.
+        </p>
+
+      </div>
+
+
+      <div class="service-card">
+
+        <div class="service-icon">🌐</div>
+
+        <h3>Websites</h3>
+
+        <p>
+          Designing modern, responsive and creative websites.
+        </p>
+
+      </div>
+
+
+      <div class="service-card">
+
+        <div class="service-icon">🎨</div>
+
+        <h3>Creative Technology</h3>
+
+        <p>
+          Combining technology, design and imagination
+          to create new ideas.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= PROJECTS ================= -->
+
+  <section class="projects" id="projects">
+
+    <div class="section-title">
+
+      <span>OUR WORK</span>
+
+      <h2>Featured Projects</h2>
+
+      <p>
+        A few examples of what we love building.
+      </p>
+
+    </div>
+
+
+    <div class="project-grid">
+
+
+      <div class="project-card">
+
+        <h3>🤖 ORION</h3>
+
+        <p>
+          A futuristic AI assistant concept designed
+          to connect technology, voice commands and smart devices.
+        </p>
+
+      </div>
+
+
+      <div class="project-card">
+
+        <h3>📖 Bible Quest</h3>
+
+        <p>
+          A creative Bible adventure project designed
+          to make Bible stories exciting and engaging.
+        </p>
+
+      </div>
+
+
+      <div class="project-card">
+
+        <h3>🌐 Web Projects</h3>
+
+        <p>
+          Modern websites and digital platforms built
+          using HTML, CSS and JavaScript.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= CONTACT ================= -->
+
+  <section class="contact" id="contact">
+
+    <div class="contact-box">
+
+      <h2>Let's Build Something Amazing</h2>
+
+      <p>
+        Have an idea, project or creative technology concept?
+        David Cyber Studio is ready to explore it.
+      </p>
+
+      <a
+        href="contact.html"
+        class="btn btn-primary"
+      >
+        Contact David Cyber Studio
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="footer-logo">
+       DAVID CYBER STUDIO
+    </div>
+
+    <p>
+      Two Young Creators • One Vision
+    </p>
+
+    <p>
+      © 2026 David Cyber Studio. All rights reserved.
+    </p>
+
+  </footer>
+
+
+</body>
+</html>
+

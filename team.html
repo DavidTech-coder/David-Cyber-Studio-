@@ -1,0 +1,768 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Our Team | David Cyber Studio</title>
+
+  <style>
+    :root {
+      --blue: #071a38;
+      --blue2: #0b2d5c;
+      --cyan: #00c8ff;
+      --gold: #ffd700;
+      --white: #ffffff;
+      --muted: #aab6c8;
+      --dark: #030812;
+      --card: rgba(10, 27, 55, 0.88);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--dark);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+
+      background: rgba(3, 8, 18, 0.9);
+      backdrop-filter: blur(15px);
+
+      border-bottom: 1px solid rgba(0, 200, 255, 0.15);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 30px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      color: var(--gold);
+      font-size: 21px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 27px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: var(--gold);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 72vh;
+      padding: 160px 8% 90px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      background:
+        radial-gradient(circle at top, #0d3470 0%, transparent 50%),
+        linear-gradient(135deg, #020713, #071a38);
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero-icon {
+      font-size: 70px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 7vw, 75px);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--cyan);
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+
+      color: var(--muted);
+      font-size: 19px;
+    }
+
+    /* GENERAL */
+
+    section {
+      padding: 95px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title span {
+      color: var(--gold);
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      margin: 10px 0;
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    /* TEAM */
+
+    .team {
+      background:
+        radial-gradient(circle at center, #0b2850 0%, transparent 55%),
+        #030812;
+    }
+
+    .team-grid {
+      max-width: 1050px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+
+    .team-card {
+      position: relative;
+
+      background: var(--card);
+
+      border: 1px solid rgba(255, 215, 0, 0.22);
+
+      border-radius: 28px;
+
+      overflow: hidden;
+
+      transition: 0.4s ease;
+
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .team-card:hover {
+      transform: translateY(-12px);
+
+      border-color: var(--gold);
+
+      box-shadow:
+        0 25px 70px rgba(0,0,0,0.5),
+        0 0 30px rgba(255,215,0,0.08);
+    }
+
+    .team-image {
+      height: 390px;
+      background: #0b1830;
+
+      overflow: hidden;
+    }
+
+    .team-image img {
+      width: 100%;
+      height: 100%;
+
+      display: block;
+
+      object-fit: cover;
+
+      transition: 0.5s;
+    }
+
+    .team-card:hover .team-image img {
+      transform: scale(1.04);
+    }
+
+    .team-info {
+      padding: 32px;
+      text-align: center;
+    }
+
+    .team-info h3 {
+      font-size: 31px;
+      margin-bottom: 5px;
+    }
+
+    .role {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 17px;
+      margin-bottom: 18px;
+    }
+
+    .description {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .skills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .skills span {
+      padding: 8px 13px;
+
+      border-radius: 20px;
+
+      background: rgba(0, 200, 255, 0.08);
+
+      border: 1px solid rgba(0, 200, 255, 0.18);
+
+      color: #dcecff;
+
+      font-size: 13px;
+    }
+
+    /* TEAM STATEMENT */
+
+    .statement {
+      background: #050d1b;
+    }
+
+    .statement-box {
+      max-width: 900px;
+      margin: auto;
+
+      padding: 50px 35px;
+
+      text-align: center;
+
+      border-radius: 25px;
+
+      background:
+        linear-gradient(145deg, #0b2346, #061225);
+
+      border: 1px solid rgba(0, 200, 255, 0.15);
+    }
+
+    .statement-box .quote {
+      font-size: 50px;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .statement-box h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .statement-box p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    /* ROLES */
+
+    .roles {
+      background: #030812;
+    }
+
+    .roles-grid {
+      max-width: 1000px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .role-card {
+      padding: 30px;
+
+      border-radius: 22px;
+
+      background: rgba(8, 25, 52, 0.8);
+
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .role-card h3 {
+      color: var(--gold);
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .role-card p {
+      color: var(--muted);
+    }
+
+    /* CTA */
+
+    .cta {
+      text-align: center;
+
+      background:
+        radial-gradient(circle at center, #0c2d5d 0%, transparent 60%),
+        #030812;
+    }
+
+    .cta-box {
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .cta h2 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+
+      padding: 14px 28px;
+
+      border-radius: 30px;
+
+      background: var(--gold);
+      color: #000;
+
+      text-decoration: none;
+
+      font-weight: 800;
+
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+
+      box-shadow:
+        0 10px 30px rgba(255,215,0,0.2);
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #02050b;
+
+      border-top: 1px solid rgba(255,255,255,0.08);
+
+      padding: 35px 20px;
+
+      text-align: center;
+    }
+
+    footer h3 {
+      color: var(--gold);
+      margin-bottom: 7px;
+    }
+
+    footer p {
+      color: #77859a;
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+
+      nav ul {
+        display: none;
+      }
+
+      .team-grid,
+      .roles-grid {
+        grid-template-columns: 1fr;
+        max-width: 550px;
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      section {
+        padding: 70px 6%;
+      }
+
+      .hero {
+        padding-left: 6%;
+        padding-right: 6%;
+      }
+
+      .hero h1 {
+        font-size: 45px;
+      }
+
+      .section-title h2 {
+        font-size: 32px;
+      }
+
+      .team-image {
+        height: 330px;
+      }
+
+      .team-info {
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <!-- ================= NAVIGATION ================= -->
+
+  <header>
+
+    <nav>
+
+      <a href="index.html" class="logo">
+         DAVID <span>CYBER STUDIO</span>
+      </a>
+
+      <ul>
+
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+
+        <li>
+          <a href="aboutus.html">About Us</a>
+        </li>
+
+        <li>
+          <a href="team.html" class="active">Team</a>
+        </li>
+
+        <li>
+          <a href="services.html">Services</a>
+        </li>
+
+        <li>
+          <a href="projects.html">Projects</a>
+        </li>
+
+        <li>
+          <a href="contact.html">Contact</a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-icon"></div>
+
+      <h1>
+        MEET OUR <span>TEAM</span>
+      </h1>
+
+      <p>
+        Two young creators united by technology,
+        creativity and one powerful vision.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= TEAM ================= -->
+
+  <section class="team">
+
+    <div class="section-title">
+
+      <span>THE CREATORS</span>
+
+      <h2>David Cyber Studio Team</h2>
+
+      <p>
+        Meet the people behind the ideas.
+      </p>
+
+    </div>
+
+
+    <div class="team-grid">
+
+
+      <!-- ================= DAVE ================= -->
+
+      <div class="team-card">
+
+        <div class="team-image">
+
+          <img
+            src="dave.png"
+            alt="Segun David"
+          >
+
+        </div>
+
+        <div class="team-info">
+
+          <h3>Segun David</h3>
+
+          <p class="role">
+            Founder & Lead Creator
+          </p>
+
+          <p class="description">
+            Leads the creative and technology direction
+            of David Cyber Studio, exploring coding,
+            artificial intelligence, websites and
+            innovative digital projects.
+          </p>
+
+          <div class="skills">
+
+            <span>💻 Coding</span>
+            <span>🤖 AI</span>
+            <span>🌐 Web</span>
+            <span>🚀 Innovation</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================= COVENANT ================= -->
+
+      <div class="team-card">
+
+        <div class="team-image">
+
+          <img
+            src="in.png"
+            alt="Crown Covenant"
+          >
+
+        </div>
+
+        <div class="team-info">
+
+          <h3>Crown Covenant</h3>
+
+          <p class="role">
+            Young Tech Creator & Team Partner
+          </p>
+
+          <p class="description">
+            Works alongside the studio team on creative
+            technology projects, exploring new ideas,
+            digital creativity and innovation.
+          </p>
+
+          <div class="skills">
+
+            <span>💻 Technology</span>
+            <span>🎨 Creativity</span>
+            <span>🚀 Innovation</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= TEAM STATEMENT ================= -->
+
+  <section class="statement">
+
+    <div class="statement-box">
+
+      <div class="quote">“</div>
+
+      <h2>Two Young Creators. One Vision.</h2>
+
+      <p>
+        We believe age should never stop someone from
+        learning, creating and building amazing things
+        with technology.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= ROLES ================= -->
+
+  <section class="roles">
+
+    <div class="section-title">
+
+      <span>HOW WE WORK</span>
+
+      <h2>Our Team Roles</h2>
+
+      <p>
+        Different strengths working together.
+      </p>
+
+    </div>
+
+
+    <div class="roles-grid">
+
+
+      <div class="role-card">
+
+        <h3>💻 Technology & Development</h3>
+
+        <p>
+          Exploring programming, websites, software,
+          artificial intelligence and technology
+          prototypes.
+        </p>
+
+      </div>
+
+
+      <div class="role-card">
+
+        <h3>🎨 Creative Development</h3>
+
+        <p>
+          Developing creative concepts, digital media,
+          storytelling and new ways to make technology
+          exciting.
+        </p>
+
+      </div>
+
+
+      <div class="role-card">
+
+        <h3>🚀 Innovation</h3>
+
+        <p>
+          Thinking about futuristic ideas and experimenting
+          with new technologies and digital possibilities.
+        </p>
+
+      </div>
+
+
+      <div class="role-card">
+
+        <h3>🤝 Collaboration</h3>
+
+        <p>
+          Sharing ideas, learning from each other and
+          working together to turn concepts into projects.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= CTA ================= -->
+
+  <section class="cta">
+
+    <div class="cta-box">
+
+      <h2>Let's Build The Future</h2>
+
+      <p>
+        Explore our services and discover what
+        David Cyber Studio is creating.
+      </p>
+
+      <a href="services.html" class="btn">
+        Explore Our Services
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <h3> DAVID CYBER STUDIO</h3>
+
+    <p>
+      Two Young Creators • One Vision
+    </p>
+
+    <p>
+      © 2026 David Cyber Studio. All rights reserved.
+    </p>
+
+  </footer>
+
+
+</body>
+</html>

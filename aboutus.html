@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>About Us | David Cyber Studio</title>
+
+  <meta
+    name="description"
+    content="Learn about David Cyber Studio, our mission, vision, creativity, technology and the young creators behind the studio."
+  >
+
+  <style>
+    :root {
+      --blue: #071a38;
+      --blue2: #0b2d5c;
+      --cyan: #00c8ff;
+      --gold: #ffd700;
+      --white: #ffffff;
+      --muted: #aab6c8;
+      --dark: #030812;
+      --card: rgba(10, 27, 55, 0.78);
+      --border: rgba(0, 200, 255, 0.25);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(0, 200, 255, 0.08), transparent 30%),
+        radial-gradient(circle at 80% 30%, rgba(255, 215, 0, 0.05), transparent 30%),
+        var(--dark);
+      color: var(--white);
+      line-height: 1.7;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(3, 8, 18, 0.92);
+      backdrop-filter: blur(15px);
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      max-width: 1250px;
+      margin: auto;
+
+      min-height: 75px;
+      padding: 0 25px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      text-decoration: none;
+      color: var(--gold);
+
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 1px;
+
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+
+      transition: 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--cyan);
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 520px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 100px 25px;
+
+      background:
+        linear-gradient(
+          rgba(3, 8, 18, 0.55),
+          rgba(3, 8, 18, 0.95)
+        ),
+        radial-gradient(
+          circle at center,
+          #0b2d5c,
+          #030812 65%
+        );
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 400px;
+      height: 400px;
+
+      border: 1px solid rgba(0, 200, 255, 0.15);
+      border-radius: 50%;
+
+      animation: rotate 20s linear infinite;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+
+      padding: 8px 18px;
+      margin-bottom: 20px;
+
+      border: 1px solid rgba(0, 200, 255, 0.4);
+      border-radius: 50px;
+
+      color: var(--cyan);
+      background: rgba(0, 200, 255, 0.08);
+
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 80px);
+      line-height: 1.05;
+
+      color: var(--gold);
+
+      margin-bottom: 25px;
+
+      text-shadow:
+        0 0 20px rgba(255, 215, 0, 0.2);
+    }
+
+    .hero h1 span {
+      color: var(--cyan);
+    }
+
+    .hero p {
+      max-width: 750px;
+      margin: auto;
+
+      color: var(--muted);
+      font-size: 19px;
+    }
+
+    /* ================= GENERAL ================= */
+
+    .section {
+      max-width: 1150px;
+      margin: auto;
+      padding: 90px 25px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      color: var(--cyan);
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    /* ================= ABOUT ================= */
+
+    .about-card {
+      background: var(--card);
+
+      border: 1px solid var(--border);
+      border-radius: 25px;
+
+      padding: 45px;
+
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.25),
+        0 0 30px rgba(0, 200, 255, 0.04);
+    }
+
+    .about-card h3 {
+      color: var(--gold);
+      font-size: 28px;
+      margin-bottom: 25px;
+    }
+
+    .about-line {
+      display: flex;
+      gap: 15px;
+
+      padding: 8px 0;
+
+      color: var(--muted);
+
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .number {
+      color: var(--cyan);
+      font-weight: bold;
+      min-width: 35px;
+    }
+
+    /* ================= MISSION VISION ================= */
+
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .info-card {
+      padding: 40px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(11,45,92,0.8),
+          rgba(5,15,31,0.8)
+        );
+
+      border: 1px solid var(--border);
+      border-radius: 22px;
+
+      transition: 0.3s;
+    }
+
+    .info-card:hover {
+      transform: translateY(-8px);
+
+      border-color: var(--cyan);
+
+      box-shadow:
+        0 15px 40px rgba(0, 200, 255, 0.1);
+    }
+
+    .info-icon {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .info-card h3 {
+      color: var(--gold);
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
+
+    .info-card p {
+      color: var(--muted);
+    }
+
+    /* ================= VALUES ================= */
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .value {
+      padding: 30px 20px;
+
+      text-align: center;
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+      border-radius: 18px;
+
+      transition: 0.3s;
+    }
+
+    .value:hover {
+      transform: translateY(-7px);
+      border-color: var(--gold);
+    }
+
+    .value-icon {
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .value h3 {
+      color: var(--cyan);
+      margin-bottom: 8px;
+    }
+
+    .value p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ================= TEAM ================= */
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .team-card {
+      overflow: hidden;
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+      border-radius: 25px;
+
+      transition: 0.3s;
+    }
+
+    .team-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--cyan);
+    }
+
+    .team-image {
+      width: 100%;
+      height: 350px;
+
+      object-fit: cover;
+
+      display: block;
+    }
+
+    .team-content {
+      padding: 30px;
+    }
+
+    .team-content h3 {
+      color: var(--gold);
+      font-size: 25px;
+      margin-bottom: 5px;
+    }
+
+    .role {
+      color: var(--cyan);
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .team-content p {
+      color: var(--muted);
+    }
+
+    /* ================= CTA ================= */
+
+    .cta {
+      max-width: 1100px;
+      margin: 30px auto 90px;
+
+      padding: 70px 30px;
+
+      text-align: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(0,200,255,0.12),
+          rgba(255,215,0,0.06)
+        );
+
+      border: 1px solid var(--border);
+      border-radius: 30px;
+    }
+
+    .cta h2 {
+      font-size: 40px;
+      color: var(--gold);
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .btn {
+      display: inline-block;
+
+      padding: 14px 30px;
+
+      background: var(--cyan);
+      color: #00101c;
+
+      text-decoration: none;
+
+      border-radius: 50px;
+
+      font-weight: bold;
+
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--gold);
+
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 10px 30px rgba(255, 215, 0, 0.15);
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #02050b;
+
+      border-top: 1px solid rgba(0,200,255,0.15);
+
+      padding: 50px 25px;
+
+      text-align: center;
+    }
+
+    .footer-logo {
+      color: var(--gold);
+
+      font-size: 24px;
+      font-weight: bold;
+
+      margin-bottom: 10px;
+    }
+
+    .footer-logo span {
+      color: var(--cyan);
+    }
+
+    footer p {
+      color: var(--muted);
+      margin: 8px 0;
+    }
+
+    .footer-links {
+      margin: 20px 0;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .footer-links a:hover {
+      color: var(--cyan);
+    }
+
+    /* ================= ANIMATION ================= */
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 850px) {
+
+      .navbar {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .two-column,
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      .hero {
+        min-height: 450px;
+        padding: 70px 20px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .section {
+        padding: 65px 18px;
+      }
+
+      .about-card {
+        padding: 25px;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .team-image {
+        height: 300px;
+      }
+
+      .cta h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+
+    <div class="navbar">
+
+      <a href="index.html" class="logo">
+         DAVID <span>CYBER STUDIO</span>
+      </a>
+
+      <nav>
+        <a href="index.html">Home</a>
+
+        <a href="aboutus.html" class="active">
+          About Us
+        </a>
+
+        <a href="team.html">
+          Team
+        </a>
+
+        <a href="services.html">
+          Services
+        </a>
+
+        <a href="projects.html">
+          Projects
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <div class="hero-badge">
+          OUR STORY • OUR VISION • OUR FUTURE
+        </div>
+
+        <h1>
+          ABOUT <span>US</span>
+        </h1>
+
+        <p>
+          We Learn. We Build. We Innovate.
+          Discover the story, mission and vision behind
+          David Cyber Studio.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= WHO WE ARE ================= -->
+
+    <section class="section">
+
+      <div class="section-title">
+
+        <h2>Who We Are</h2>
+
+        <p>
+          A young studio built around technology,
+          creativity and innovation.
+        </p>
+
+      </div>
+
+
+      <div class="about-card">
+
+        <h3>
+          David Cyber Studio
+        </h3>
+
+
+        <div class="about-line">
+          <span class="number">01.</span>
+          <span>David Cyber Studio is a young technology and creative studio.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">02.</span>
+          <span>We are passionate about technology, creativity, and innovation.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">03.</span>
+          <span>Our studio was created to turn ideas into real digital projects.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">04.</span>
+          <span>We believe that young people can create amazing things with technology.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">05.</span>
+          <span>We explore coding, websites, artificial intelligence, and digital media.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">06.</span>
+          <span>We also enjoy building futuristic technology projects.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">07.</span>
+          <span>Our mission is to learn, create, build, and inspire.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">08.</span>
+          <span>We want to use technology to solve problems and create useful solutions.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">09.</span>
+          <span>We believe learning never stops.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">10.</span>
+          <span>Every project gives us an opportunity to discover something new.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">11.</span>
+          <span>We work together by sharing ideas and helping each other.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">12.</span>
+          <span>Our vision is to become a creative and innovative technology studio.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">13.</span>
+          <span>We want our projects to inspire other young creators.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">14.</span>
+          <span>We want to show that great ideas can start small.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">15.</span>
+          <span>Our goal is to keep improving our coding and technology skills.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">16.</span>
+          <span>We create websites that are useful, modern, and creative.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">17.</span>
+          <span>We explore AI to discover new possibilities.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">18.</span>
+          <span>We build software and digital projects from our ideas.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">19.</span>
+          <span>We also create creative media and technology experiences.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">20.</span>
+          <span>Innovation is one of the most important things we believe in.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">21.</span>
+          <span>Creativity helps us turn simple ideas into exciting projects.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">22.</span>
+          <span>Teamwork helps us achieve more together.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">23.</span>
+          <span>Learning helps us become better creators every day.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">24.</span>
+          <span>We believe technology should be used positively.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">25.</span>
+          <span>We want to create projects that can make a difference.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">26.</span>
+          <span>David Cyber Studio is more than just a name.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">27.</span>
+          <span>It is a place where ideas become projects.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">28.</span>
+          <span>It is a journey of learning, creativity, and innovation.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">29.</span>
+          <span>Our mission is to create useful technology and inspire others.</span>
+        </div>
+
+        <div class="about-line">
+          <span class="number">30.</span>
+          <span><strong>Our future is to create today and inspire tomorrow.</strong></span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= MISSION & VISION ================= -->
+
+    <section class="section">
+
+      <div class="section-title">
+
+        <h2>Our Direction</h2>
+
+        <p>
+          What drives David Cyber Studio forward.
+        </p>
+
+      </div>
+
+
+      <div class="two-column">
+
+        <div class="info-card">
+
+          <div class="info-icon">
+            🚀
+          </div>
+
+          <h3>
+            Our Mission
+          </h3>
+
+          <p>
+            Our mission is to learn, create, build and
+            innovate with technology. We want to turn
+            creative ideas into useful digital projects
+            while inspiring other young creators to
+            discover what they can build.
+          </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+          <div class="info-icon">
+            🌍
+          </div>
+
+          <h3>
+            Our Vision
+          </h3>
+
+          <p>
+            Our vision is to grow David Cyber Studio
+            into a creative technology studio known
+            for innovation, digital creativity,
+            futuristic projects and ideas that inspire
+            the next generation.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= VALUES ================= -->
+
+    <section class="section">
+
+      <div class="section-title">
+
+        <h2>Our Core Values</h2>
+
+        <p>
+          The principles behind everything we create.
+        </p>
+
+      </div>
+
+
+      <div class="values-grid">
+
+        <div class="value">
+          <div class="value-icon">💡</div>
+          <h3>Creativity</h3>
+          <p>We turn ideas into exciting possibilities.</p>
+        </div>
+
+        <div class="value">
+          <div class="value-icon">🚀</div>
+          <h3>Innovation</h3>
+          <p>We explore new ways to use technology.</p>
+        </div>
+
+        <div class="value">
+          <div class="value-icon">📚</div>
+          <h3>Learning</h3>
+          <p>We keep learning and improving our skills.</p>
+        </div>
+
+        <div class="value">
+          <div class="value-icon">🤝</div>
+          <h3>Teamwork</h3>
+          <p>We believe great ideas grow through teamwork.</p>
+        </div>
+
+        <div class="value">
+          <div class="value-icon">⭐</div>
+          <h3>Excellence</h3>
+          <p>We always try to make our work better.</p>
+        </div>
+
+        <div class="value">
+          <div class="value-icon">🔍</div>
+          <h3>Curiosity</h3>
+          <p>We ask questions and explore new ideas.</p>
+        </div>
+
+        <div class="value">
+          <div class="value-icon">🧠</div>
+          <h3>Innovation</h3>
+          <p>We think beyond ordinary solutions.</p>
+        </div>
+
+        <div class="value">
+          <div class="value-icon">🌟</div>
+          <h3>Inspiration</h3>
+          <p>We want our projects to inspire others.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= TEAM ================= -->
+
+    <section class="section">
+
+      <div class="section-title">
+
+        <h2>Meet The Team</h2>
+
+        <p>
+          The creators behind David Cyber Studio.
+        </p>
+
+      </div>
+
+
+      <div class="team-grid">
+
+        <div class="team-card">
+
+          <img
+            src="dave.png"
+            alt="Segun David"
+            class="team-image"
+          >
+
+          <div class="team-content">
+
+            <h3>
+              Segun David
+            </h3>
+
+            <div class="role">
+              Founder & Lead Creator
+            </div>
+
+            <p>
+              Focused on coding, artificial intelligence,
+              websites, software development and
+              innovative technology projects.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="team-card">
+
+          <img
+            src="covenant.png"
+            alt="Crown Covenant"
+            class="team-image"
+          >
+
+          <div class="team-content">
+
+            <h3>
+              Crown Covenant
+            </h3>
+
+            <div class="role">
+              Young Tech Creator & Team Partner
+            </div>
+
+            <p>
+              Focused on technology, creativity,
+              innovation and helping turn exciting
+              ideas into creative projects.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= WHAT WE DO ================= -->
+
+    <section class="section">
+
+      <div class="section-title">
+
+        <h2>What We Do</h2>
+
+        <p>
+          We explore different areas of technology and digital creativity.
+        </p>
+
+      </div>
+
+
+      <div class="two-column">
+
+        <div class="info-card">
+
+          <div class="info-icon">
+            💻
+          </div>
+
+          <h3>
+            Coding & Websites
+          </h3>
+
+          <p>
+            We design and develop modern websites,
+            web experiences and interactive digital
+            projects using technologies such as
+            HTML, CSS and JavaScript.
+          </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+          <div class="info-icon">
+            🤖
+          </div>
+
+          <h3>
+            Artificial Intelligence
+          </h3>
+
+          <p>
+            We explore artificial intelligence and
+            experiment with ways AI can be used
+            for creativity, automation, learning,
+            media and digital projects.
+          </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+          <div class="info-icon">
+            ⚙️
+          </div>
+
+          <h3>
+            Technology Projects
+          </h3>
+
+          <p>
+            We create experimental technology
+            projects that combine hardware,
+            software, creativity and futuristic ideas.
+          </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+          <div class="info-icon">
+            🎨
+          </div>
+
+          <h3>
+            Digital Creativity
+          </h3>
+
+          <p>
+            We combine technology and creativity
+            to create digital media, visual concepts,
+            stories and exciting experiences.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta">
+
+      <h2>
+        The Future Starts With An Idea
+      </h2>
+
+      <p>
+        David Cyber Studio is a journey of learning,
+        creativity, technology and innovation.
+        We are building today while preparing for
+        the possibilities of tomorrow.
+      </p>
+
+      <a href="team.html" class="btn">
+        Meet Our Team →
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="footer-logo">
+       DAVID <span>CYBER STUDIO</span>
+    </div>
+
+    <p>
+      We Learn. We Build. We Innovate.
+    </p>
+
+    <div class="footer-links">
+
+      <a href="index.html">Home</a>
+
+      <a href="aboutus.html">About Us</a>
+
+      <a href="team.html">Team</a>
+
+      <a href="services.html">Services</a>
+
+      <a href="projects.html">Projects</a>
+
+      <a href="contact.html">Contact</a>
+
+    </div>
+
+    <p>
+      © 2026 David Cyber Studio. All rights reserved.
+    </p>
+
+  </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Contact | David Cyber Studio
+    </title>
+
+    <style>
+
+        :root {
+            --blue: #071a38;
+            --blue2: #0b2d5c;
+            --cyan: #00c8ff;
+            --gold: #ffd700;
+            --white: #ffffff;
+            --muted: #aab6c8;
+            --dark: #030812;
+            --card: rgba(10, 27, 55, 0.82);
+            --border: rgba(0, 200, 255, 0.25);
+            --danger: #ff4d6d;
+            --success: #39ff88;
+        }
+
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(0, 200, 255, 0.12),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at bottom left,
+                    rgba(255, 215, 0, 0.07),
+                    transparent 35%
+                ),
+                var(--dark);
+
+            color: var(--white);
+            min-height: 100vh;
+        }
+
+
+        /* NAVIGATION */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 18px 7%;
+
+            background:
+                rgba(3, 8, 18, 0.88);
+
+            backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid var(--border);
+        }
+
+
+        .logo {
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: 1px;
+
+            color: var(--white);
+        }
+
+
+        .logo span {
+            color: var(--cyan);
+        }
+
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+
+        nav a:hover,
+        nav a.active {
+            color: var(--cyan);
+        }
+
+
+        /* HERO */
+
+        .hero {
+            text-align: center;
+            padding: 90px 20px 55px;
+        }
+
+
+        .hero h1 {
+            font-size:
+                clamp(42px, 7vw, 82px);
+
+            line-height: 1;
+
+            letter-spacing: 3px;
+
+            text-shadow:
+                0 0 30px
+                rgba(0, 200, 255, 0.35);
+        }
+
+
+        .hero h1 span {
+            color: var(--cyan);
+        }
+
+
+        .hero p {
+            max-width: 720px;
+            margin: 25px auto 0;
+
+            color: var(--muted);
+
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+
+        /* MAIN */
+
+        .container {
+            width: min(1150px, 92%);
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                0.8fr 1.2fr;
+
+            gap: 30px;
+
+            padding-bottom: 90px;
+        }
+
+
+        /* CARDS */
+
+        .card {
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(11, 45, 92, 0.88),
+                    rgba(5, 14, 30, 0.9)
+                );
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 24px;
+
+            padding: 32px;
+
+            box-shadow:
+                0 20px 60px
+                rgba(0, 0, 0, 0.3);
+        }
+
+
+        .card h2 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+
+        .card > p {
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+
+        /* EMAIL */
+
+        .email-box {
+            padding: 24px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(0, 200, 255, 0.07);
+
+            border:
+                1px solid var(--border);
+
+            margin-bottom: 20px;
+        }
+
+
+        .email-label {
+            color: var(--cyan);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+
+        .email-address {
+            color: var(--white);
+            font-size: 18px;
+            word-break: break-word;
+        }
+
+
+        .email-btn {
+            display: inline-block;
+
+            padding: 14px 20px;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--cyan),
+                    #1689ff
+                );
+
+            color: #00101f;
+
+            text-decoration: none;
+
+            font-weight: 800;
+
+            transition: 0.3s;
+        }
+
+
+        .email-btn:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 30px
+                rgba(0, 200, 255, 0.25);
+        }
+
+
+        .info-box {
+            margin-top: 25px;
+
+            padding: 20px;
+
+            border-left:
+                3px solid var(--gold);
+
+            background:
+                rgba(255, 215, 0, 0.05);
+
+            border-radius: 10px;
+        }
+
+
+        .info-box strong {
+            color: var(--gold);
+        }
+
+
+        .info-box p {
+            color: var(--muted);
+            line-height: 1.6;
+            margin-top: 7px;
+        }
+
+
+        /* FORM */
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 18px;
+        }
+
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+
+        label {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+
+        label span {
+            color: var(--cyan);
+        }
+
+
+        input,
+        select,
+        textarea {
+
+            width: 100%;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.12);
+
+            background:
+                rgba(0, 0, 0, 0.28);
+
+            color: var(--white);
+
+            border-radius: 12px;
+
+            padding: 14px 15px;
+
+            outline: none;
+
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--cyan);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(0, 200, 255, 0.08);
+        }
+
+
+        select option {
+            background: var(--blue);
+            color: var(--white);
+        }
+
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+
+        .submit-btn {
+
+            width: 100%;
+
+            border: none;
+
+            padding: 16px;
+
+            border-radius: 13px;
+
+            margin-top: 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--cyan),
+                    #1689ff
+                );
+
+            color: #00101f;
+
+            font-size: 16px;
+
+            font-weight: 900;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 35px
+                rgba(0, 200, 255, 0.25);
+        }
+
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+
+        /* FORM MESSAGE */
+
+        #formMessage {
+
+            margin-top: 18px;
+
+            padding: 14px;
+
+            border-radius: 12px;
+
+            display: none;
+
+            line-height: 1.5;
+        }
+
+
+        #formMessage.success {
+
+            display: block;
+
+            background:
+                rgba(57, 255, 136, 0.08);
+
+            border:
+                1px solid
+                rgba(57, 255, 136, 0.3);
+
+            color: var(--success);
+        }
+
+
+        #formMessage.error {
+
+            display: block;
+
+            background:
+                rgba(255, 77, 109, 0.08);
+
+            border:
+                1px solid
+                rgba(255, 77, 109, 0.3);
+
+            color: #ff8ba1;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            border-top:
+                1px solid var(--border);
+
+            color: var(--muted);
+
+            background:
+                rgba(0, 0, 0, 0.2);
+        }
+
+
+        footer strong {
+            color: var(--cyan);
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 14px;
+            }
+
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .hero {
+                padding-top: 60px;
+            }
+
+
+            .card {
+                padding: 22px;
+            }
+
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            DAVID <span>CYBER STUDIO</span>
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="aboutus.html">
+                    About Us
+                </a>
+            </li>
+
+            <li>
+                <a href="team.html">
+                    Team
+                </a>
+            </li>
+
+            <li>
+                <a href="services.html">
+                    Services
+                </a>
+            </li>
+
+            <li>
+                <a href="projects.html">
+                    Projects
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="contact.html"
+                    class="active"
+                >
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <h1>
+            LET'S
+            <span>
+                BUILD
+            </span>
+            TOGETHER
+        </h1>
+
+        <p>
+            Have an idea for a website, AI project,
+            Bible technology project, app, game or
+            smart technology? Tell David Cyber Studio
+            about it and let's turn the idea into
+            something real.
+        </p>
+
+    </section>
+
+
+    <!-- CONTENT -->
+
+    <main class="container">
+
+
+        <!-- CONTACT CARD -->
+
+        <section class="card">
+
+            <h2>
+                Chat With Us
+            </h2>
+
+            <p>
+                Send us an email if you want to ask
+                a question, discuss an idea or talk
+                about a project.
+            </p>
+
+
+            <div class="email-box">
+
+                <div class="email-label">
+                    Studio Email
+                </div>
+
+                <div class="email-address">
+                    davidcyberstudio@gmail.com
+                </div>
+
+            </div>
+
+
+            <a
+                class="email-btn"
+                href="mailto:davidcyberstudio@gmail.com?subject=Hello%20David%20Cyber%20Studio"
+            >
+                ✉ Email David Cyber Studio
+            </a>
+
+
+            <div class="info-box">
+
+                <strong>
+                    Project Requests
+                </strong>
+
+                <p>
+                    You can also use the project form
+                    to send us the details of your idea.
+                    Your request will be securely saved
+                    in our project dashboard.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROJECT FORM -->
+
+        <section class="card">
+
+            <h2>
+                Start A Project
+            </h2>
+
+            <p>
+                Tell us what you want to build.
+                Required fields are marked with
+                a blue dot.
+            </p>
+
+
+            <form id="projectForm">
+
+                <div class="form-grid">
+
+
+                    <!-- NAME -->
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Your Name
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            maxlength="100"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            maxlength="255"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PHONE -->
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="Optional"
+                            maxlength="30"
+                        >
+
+                    </div>
+
+
+                    <!-- PROJECT NAME -->
+
+                    <div class="form-group">
+
+                        <label for="projectName">
+                            Project Name
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="projectName"
+                            name="projectName"
+                            placeholder="e.g. My New Website"
+                            maxlength="150"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PROJECT TYPE -->
+
+                    <div class="form-group">
+
+                        <label for="projectType">
+                            Project Type
+                            <span>*</span>
+                        </label>
+
+                        <select
+                            id="projectType"
+                            name="projectType"
+                            required
+                        >
+
+                            <option value="">
+                                Select project type
+                            </option>
+
+                            <option value="Website">
+                                Website
+                            </option>
+
+                            <option value="Web App">
+                                Web App
+                            </option>
+
+                            <option value="Mobile App">
+                                Mobile App
+                            </option>
+
+                            <option value="AI Project">
+                                AI Project
+                            </option>
+
+                            <option value="Game">
+                                Game
+                            </option>
+
+                            <option value="Bible Technology">
+                                Bible Technology
+                            </option>
+
+                            <option value="Smart Technology">
+                                Smart Technology
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- BUDGET -->
+
+                    <div class="form-group">
+
+                        <label for="budget">
+                            Estimated Budget
+                        </label>
+
+                        <select
+                            id="budget"
+                            name="budget"
+                        >
+
+                            <option value="">
+                                Not specified
+                            </option>
+
+                            <option value="Below ₦50,000">
+                                Below ₦50,000
+                            </option>
+
+                            <option value="₦50,000 - ₦100,000">
+                                ₦50,000 - ₦100,000
+                            </option>
+
+                            <option value="₦100,000 - ₦250,000">
+                                ₦100,000 - ₦250,000
+                            </option>
+
+                            <option value="₦250,000+">
+                                ₦250,000+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- DEADLINE -->
+
+                    <div class="form-group">
+
+                        <label for="deadline">
+                            Desired Deadline
+                        </label>
+
+                        <input
+                            type="date"
+                            id="deadline"
+                            name="deadline"
+                        >
+
+                    </div>
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="form-group full">
+
+                        <label for="description">
+                            Project Description
+                            <span>*</span>
+                        </label>
+
+                        <textarea
+                            id="description"
+                            name="description"
+                            placeholder="Tell us what you want to build, what it should do, and any important features you have in mind..."
+                            maxlength="5000"
+                            required
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                    id="submitBtn"
+                >
+                    🚀 Submit Project Request
+                </button>
+
+
+                <div id="formMessage"></div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026
+        <strong>
+            David Cyber Studio
+        </strong>
+        — Build. Create. Innovate.
+
+    </footer>
+
+
+    <!-- SUPABASE -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+    <script src="supabase.js"></script>
+
+
+    <!-- CONTACT FORM SCRIPT -->
+
+    <script>
+
+        const projectForm =
+            document.getElementById("projectForm");
+
+        const submitBtn =
+            document.getElementById("submitBtn");
+
+        const formMessage =
+            document.getElementById("formMessage");
+
+
+        function showMessage(
+            message,
+            type
+        ) {
+
+            formMessage.textContent =
+                message;
+
+            formMessage.className =
+                type;
+
+        }
+
+
+        projectForm.addEventListener(
+            "submit",
+            async function (event) {
+
+                event.preventDefault();
+
+
+                submitBtn.disabled = true;
+
+                submitBtn.textContent =
+                    "Submitting...";
+
+
+                showMessage(
+                    "",
+                    ""
+                );
+
+
+                const project = {
+
+                    name:
+                        document
+                            .getElementById("name")
+                            .value
+                            .trim(),
+
+                    email:
+                        document
+                            .getElementById("email")
+                            .value
+                            .trim(),
+
+                    phone:
+                        document
+                            .getElementById("phone")
+                            .value
+                            .trim(),
+
+                    project_name:
+                        document
+                            .getElementById("projectName")
+                            .value
+                            .trim(),
+
+                    project_type:
+                        document
+                            .getElementById("projectType")
+                            .value,
+
+                    budget:
+                        document
+                            .getElementById("budget")
+                            .value,
+
+                    deadline:
+                        document
+                            .getElementById("deadline")
+                            .value ||
+                        null,
+
+                    description:
+                        document
+                            .getElementById("description")
+                            .value
+                            .trim(),
+
+                    status:
+                        "New"
+
+                };
+
+
+                // Basic client-side validation
+
+                if (
+                    project.name.length < 2 ||
+                    project.project_name.length < 2 ||
+                    project.description.length < 10
+                ) {
+
+                    showMessage(
+                        "Please provide more complete project information.",
+                        "error"
+                    );
+
+                    submitBtn.disabled = false;
+
+                    submitBtn.textContent =
+                        "🚀 Submit Project Request";
+
+                    return;
+                }
+
+
+                try {
+
+                    const {
+                        error
+                    } =
+                        await supabaseClient
+                            .from("project_requests")
+                            .insert([
+                                project
+                            ]);
+
+
+                    if (error) {
+
+                        console.error(
+                            "Supabase error:",
+                            error
+                        );
+
+                        showMessage(
+                            "Something went wrong while submitting your project. Please try again.",
+                            "error"
+                        );
+
+                        submitBtn.disabled = false;
+
+                        submitBtn.textContent =
+                            "🚀 Submit Project Request";
+
+                        return;
+                    }
+
+
+                    // SUCCESS
+
+                    showMessage(
+                        "🎉 Project request submitted successfully! David Cyber Studio has received your request.",
+                        "success"
+                    );
+
+
+                    projectForm.reset();
+
+
+                } catch (error) {
+
+                    console.error(
+                        error
+                    );
+
+                    showMessage(
+                        "A connection error occurred. Please check your internet connection and try again.",
+                        "error"
+                    );
+
+                }
+
+
+                submitBtn.disabled = false;
+
+                submitBtn.textContent =
+                    "🚀 Submit Project Request";
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

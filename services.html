@@ -1,0 +1,877 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Services | David Cyber Studio</title>
+
+  <style>
+    :root {
+      --blue: #071a38;
+      --blue2: #0b2d5c;
+      --cyan: #00c8ff;
+      --gold: #ffd700;
+      --white: #ffffff;
+      --muted: #aab6c8;
+      --dark: #030812;
+      --card: rgba(10, 27, 55, 0.85);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--dark);
+      color: var(--white);
+      line-height: 1.7;
+    }
+
+    /* ================= NAVBAR ================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(3, 8, 18, 0.9);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(0, 200, 255, 0.15);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 30px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      color: var(--gold);
+      font-size: 21px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 27px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: var(--gold);
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 70vh;
+      padding: 160px 8% 90px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      background:
+        radial-gradient(circle at top, #0d3470 0%, transparent 50%),
+        linear-gradient(135deg, #020713, #071a38);
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero-icon {
+      font-size: 65px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 7vw, 75px);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--cyan);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 19px;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    /* ================= GENERAL ================= */
+
+    section {
+      padding: 95px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title span {
+      color: var(--gold);
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      margin: 10px 0;
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    /* ================= SERVICES ================= */
+
+    .services {
+      background: #050d1b;
+    }
+
+    .service-grid {
+      max-width: 1150px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .service-card {
+      position: relative;
+
+      padding: 35px 28px;
+
+      border-radius: 24px;
+
+      background:
+        linear-gradient(145deg, #0b2346, #061225);
+
+      border: 1px solid rgba(0, 200, 255, 0.14);
+
+      transition: 0.35s ease;
+
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+
+      position: absolute;
+      width: 120px;
+      height: 120px;
+
+      border-radius: 50%;
+
+      background: rgba(0, 200, 255, 0.08);
+
+      top: -50px;
+      right: -50px;
+    }
+
+    .service-card:hover {
+      transform: translateY(-9px);
+      border-color: var(--cyan);
+
+      box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.35),
+        0 0 25px rgba(0, 200, 255, 0.08);
+    }
+
+    .service-icon {
+      font-size: 50px;
+      margin-bottom: 18px;
+    }
+
+    .service-card h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: white;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .service-list {
+      list-style: none;
+      margin-top: 18px;
+    }
+
+    .service-list li {
+      color: #cdd8e8;
+      font-size: 14px;
+      margin: 7px 0;
+    }
+
+    .service-list li::before {
+      content: "✓";
+      color: var(--gold);
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    /* ================= FEATURED ================= */
+
+    .featured {
+      background:
+        radial-gradient(circle at center, #0c2d5d 0%, transparent 60%),
+        #030812;
+    }
+
+    .featured-container {
+      max-width: 1050px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+    }
+
+    .featured-card {
+      padding: 40px;
+
+      border-radius: 25px;
+
+      background: rgba(8, 25, 52, 0.8);
+
+      border: 1px solid rgba(255, 215, 0, 0.16);
+
+      transition: 0.3s;
+    }
+
+    .featured-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--gold);
+    }
+
+    .featured-card .icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .featured-card h3 {
+      color: var(--gold);
+      font-size: 27px;
+      margin-bottom: 12px;
+    }
+
+    .featured-card p {
+      color: var(--muted);
+    }
+
+    /* ================= PROCESS ================= */
+
+    .process {
+      background: #050d1b;
+    }
+
+    .process-grid {
+      max-width: 1050px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .process-card {
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .number {
+      width: 55px;
+      height: 55px;
+
+      margin: 0 auto 18px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: var(--gold);
+      color: #000;
+
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .process-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .process-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ================= CTA ================= */
+
+    .cta {
+      text-align: center;
+
+      background:
+        radial-gradient(circle at center, #0b3470 0%, transparent 60%),
+        #030812;
+    }
+
+    .cta-box {
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .cta h2 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+
+      padding: 14px 28px;
+
+      border-radius: 30px;
+
+      background: var(--gold);
+      color: #000;
+
+      text-decoration: none;
+
+      font-weight: 800;
+
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+
+      box-shadow:
+        0 10px 30px rgba(255, 215, 0, 0.2);
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+
+      background: #02050b;
+
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    footer h3 {
+      color: var(--gold);
+      margin-bottom: 7px;
+    }
+
+    footer p {
+      color: #77859a;
+      font-size: 14px;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 900px) {
+
+      nav ul {
+        display: none;
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .featured-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      section {
+        padding: 70px 6%;
+      }
+
+      .service-grid,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-left: 6%;
+        padding-right: 6%;
+      }
+
+      .hero h1 {
+        font-size: 45px;
+      }
+
+      .section-title h2 {
+        font-size: 32px;
+      }
+
+      .featured-card {
+        padding: 30px 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <!-- ================= NAVIGATION ================= -->
+
+  <header>
+
+    <nav>
+
+      <a href="index.html" class="logo">
+         DAVID <span>CYBER STUDIO</span>
+      </a>
+
+      <ul>
+
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+
+        <li>
+          <a href="aboutus.html">About Us</a>
+        </li>
+
+        <li>
+          <a href="team.html">Team</a>
+        </li>
+
+        <li>
+          <a href="services.html" class="active">Services</a>
+        </li>
+
+        <li>
+          <a href="projects.html">Projects</a>
+        </li>
+
+        <li>
+          <a href="contact.html">Contact</a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-icon">⚡</div>
+
+      <h1>
+        OUR <span>SERVICES</span>
+      </h1>
+
+      <p>
+        We combine coding, artificial intelligence,
+        web development and creative technology
+        to turn ideas into exciting digital projects.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= MAIN SERVICES ================= -->
+
+  <section class="services">
+
+    <div class="section-title">
+
+      <span>WHAT WE CREATE</span>
+
+      <h2>Our Technology Services</h2>
+
+      <p>
+        Explore the areas where David Cyber Studio
+        creates and experiments.
+      </p>
+
+    </div>
+
+
+    <div class="service-grid">
+
+
+      <!-- WEBSITE DEVELOPMENT -->
+
+      <div class="service-card">
+
+        <div class="service-icon">🌐</div>
+
+        <h3>Website Development</h3>
+
+        <p>
+          Modern and responsive websites designed
+          for people, projects, organizations and
+          creative ideas.
+        </p>
+
+        <ul class="service-list">
+          <li>HTML & CSS</li>
+          <li>JavaScript</li>
+          <li>Responsive Design</li>
+          <li>Interactive Websites</li>
+        </ul>
+
+      </div>
+
+
+      <!-- AI -->
+
+      <div class="service-card">
+
+        <div class="service-icon">🤖</div>
+
+        <h3>Artificial Intelligence</h3>
+
+        <p>
+          Exploring intelligent technology and
+          building AI-powered concepts and tools.
+        </p>
+
+        <ul class="service-list">
+          <li>AI Assistants</li>
+          <li>AI Applications</li>
+          <li>Automation Concepts</li>
+          <li>Creative AI Projects</li>
+        </ul>
+
+      </div>
+
+
+      <!-- SOFTWARE -->
+
+      <div class="service-card">
+
+        <div class="service-icon">💻</div>
+
+        <h3>Software Projects</h3>
+
+        <p>
+          Building software concepts and applications
+          that solve problems and make technology useful.
+        </p>
+
+        <ul class="service-list">
+          <li>Web Applications</li>
+          <li>Digital Tools</li>
+          <li>Interactive Apps</li>
+          <li>Prototype Development</li>
+        </ul>
+
+      </div>
+
+
+      <!-- CREATIVE MEDIA -->
+
+      <div class="service-card">
+
+        <div class="service-icon">🎨</div>
+
+        <h3>Creative Technology</h3>
+
+        <p>
+          Combining technology and creativity to
+          create unique digital experiences.
+        </p>
+
+        <ul class="service-list">
+          <li>Digital Design</li>
+          <li>Creative Concepts</li>
+          <li>Visual Projects</li>
+          <li>Interactive Experiences</li>
+        </ul>
+
+      </div>
+
+
+      <!-- AI VIDEO -->
+
+      <div class="service-card">
+
+        <div class="service-icon">🎬</div>
+
+        <h3>AI & Digital Media</h3>
+
+        <p>
+          Experimenting with modern digital media
+          and AI-assisted creative production.
+        </p>
+
+        <ul class="service-list">
+          <li>AI Video Concepts</li>
+          <li>Animation Ideas</li>
+          <li>Digital Storytelling</li>
+          <li>Creative Visuals</li>
+        </ul>
+
+      </div>
+
+
+      <!-- TECH PROJECTS -->
+
+      <div class="service-card">
+
+        <div class="service-icon">🚀</div>
+
+        <h3>Technology Projects</h3>
+
+        <p>
+          Turning futuristic ideas into prototypes,
+          experiments and technology concepts.
+        </p>
+
+        <ul class="service-list">
+          <li>Smart Devices</li>
+          <li>IoT Concepts</li>
+          <li>Electronics Projects</li>
+          <li>Future Technology</li>
+        </ul>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= SPECIAL PROJECTS ================= -->
+
+  <section class="featured">
+
+    <div class="section-title">
+
+      <span>OUR CREATIVE SIDE</span>
+
+      <h2>Special Project Areas</h2>
+
+      <p>
+        We also explore technology through creative projects.
+      </p>
+
+    </div>
+
+
+    <div class="featured-container">
+
+
+      <div class="featured-card">
+
+        <div class="icon">🤖</div>
+
+        <h3>ORION</h3>
+
+        <p>
+          A futuristic AI assistant concept designed
+          to explore voice commands, smart devices,
+          digital assistance and connected technology.
+        </p>
+
+      </div>
+
+
+      <div class="featured-card">
+
+        <div class="icon">📖</div>
+
+        <h3>Bible Quest</h3>
+
+        <p>
+          A creative adventure project that combines
+          Bible stories, technology, animation and
+          digital storytelling to make learning exciting.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= PROCESS ================= -->
+
+  <section class="process">
+
+    <div class="section-title">
+
+      <span>HOW WE WORK</span>
+
+      <h2>From Idea to Creation</h2>
+
+      <p>
+        Every project starts with an idea.
+      </p>
+
+    </div>
+
+
+    <div class="process-grid">
+
+
+      <div class="process-card">
+
+        <div class="number">01</div>
+
+        <h3>Imagine</h3>
+
+        <p>
+          We start by exploring the idea and
+          understanding what could be created.
+        </p>
+
+      </div>
+
+
+      <div class="process-card">
+
+        <div class="number">02</div>
+
+        <h3>Design</h3>
+
+        <p>
+          We plan the structure, appearance and
+          features of the project.
+        </p>
+
+      </div>
+
+
+      <div class="process-card">
+
+        <div class="number">03</div>
+
+        <h3>Build</h3>
+
+        <p>
+          We use technology and creativity to
+          turn the idea into a working project.
+        </p>
+
+      </div>
+
+
+      <div class="process-card">
+
+        <div class="number">04</div>
+
+        <h3>Improve</h3>
+
+        <p>
+          We test, learn, improve and continue
+          developing the project.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= CTA ================= -->
+
+  <section class="cta">
+
+    <div class="cta-box">
+
+      <h2>Have An Idea?</h2>
+
+      <p>
+        Let's explore what we can build with technology,
+        creativity and innovation.
+      </p>
+
+      <a href="contact.html" class="btn">
+        Start A Project
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <h3> DAVID CYBER STUDIO</h3>
+
+    <p>
+      Two Young Creators • One Vision
+    </p>
+
+    <p>
+      © 2026 David Cyber Studio. All rights reserved.
+    </p>
+
+  </footer>
+
+
+</body>
+</html>
+```
